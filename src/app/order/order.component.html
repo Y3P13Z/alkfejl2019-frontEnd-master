@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+
+<div class="product-form">
+    <form [formGroup]='orderForm' (ngSubmit)="onSubmit()" method="post">
+        <h2 class="text-center">MakeOrder</h2>
+
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="name" placeholder="Name" required="required">
+            <div *ngIf="submitted && orderForm.controls.name.errors" class="error">
+                <div *ngIf="orderForm.controls.name.errors.required">The name is required, bro</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <select class="form-control" formControlName="productId">
+                <option *ngFor="let product of products" value={{product.id}}>{{product.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="form-control" formControlName="evaluatorId">
+                <option *ngFor="let user of users" value={{user.id}}>{{user.username}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="quantity" placeholder="Quantity"
+                required="required">
+            <div *ngIf="submitted && orderForm.controls.quantity.errors" class="error">
+                <div *ngIf="orderForm.controls.quantity.errors.required">The quantity is required, bro</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Make order</button>
+            <button mat-raised-button routerLink="/order" class="btn btn-danger btn-block">Back</button>
+        </div>
+    </form>

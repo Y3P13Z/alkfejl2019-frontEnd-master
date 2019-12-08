@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+
+<table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">PetitionerId</th>
+            <th scope="col">Evaluator</th>
+            <th scope="col">Product</th>
+            <th scope="col">Total price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Status</th>
+            <th scope="col">Accept order</th>
+            <th scope="col">Decline order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <th scope="row">{{order.id}}</th>
+            <td>{{order.petitionerId}}</td>
+            <td>{{order.evaluator.username}}</td>
+            <td>{{order.product.name}}</td>
+            <td>{{order.totalPrice}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.status}}</td>
+            <td><button class="btn btn-success" mat-raised-button color="primary" (click)="onAcceptClick(order.id)">Accept</button></td>
+            <td><button class="btn btn-danger" mat-raised-button color="primary" (click)="onDeclineClick(order.id)">Decline</button></td>
+          </tr>
+          
+        </tbody>
+      </table>

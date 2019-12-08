@@ -1,0 +1,63 @@
+<app-nav></app-nav>
+<h1 class="text-center">Welcome {{auth.user.username}}</h1>
+<br>
+<table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Status</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{product.id}}</th>
+            <td>
+                <a [routerLink]="['/product', product.id]">
+                {{product.name}}
+                </a>               
+            </td>
+            <td>{{product.price}}</td>
+            <td>{{product.status}}</td>
+            <td>{{product.quantity}}</td>
+            <td><button mat-raised-button color="primary" class="btn btn-danger" (click)="onDeleteClick(product.id)">Delete</button></td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <div class="product-form">
+            <form [formGroup]='productForm' (ngSubmit)="onSubmit()" method="post">
+                <h2 class="text-center">Add product</h2>       
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName = "name" placeholder="Name" required="required">
+                    <div *ngIf="submitted && productForm.controls.name.errors" class="error">
+                        <div *ngIf="productForm.controls.name.errors.required">The name is required, bro</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName = "price" placeholder="Price" required="required">
+                    <div *ngIf="submitted && productForm.controls.price.errors" class="error">
+                        <div *ngIf="productForm.controls.price.errors.required">The price is required, bro</div>
+                    </div>  
+                </div>
+                <div class="form-group">
+                        <input type="text" class="form-control" formControlName = "quantity" placeholder="Quantity" required="required">
+                        <div *ngIf="submitted && productForm.controls.quantity.errors" class="error">
+                            <div *ngIf="productForm.controls.quantity.errors.required">The quantity is required, bro</div>
+                        </div>  
+                    </div>
+        
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Add product</button>
+                </div>      
+            </form>
+            
+        </div>
+
+
+
+   

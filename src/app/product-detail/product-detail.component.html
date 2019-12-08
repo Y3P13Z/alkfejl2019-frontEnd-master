@@ -1,0 +1,46 @@
+<app-nav></app-nav>
+
+<h1 class="display-2">Product #{{ product.id }}</h1>
+<dl class="row">
+  <dt class="col-sm-3">Name</dt>
+  <dd class="col-sm-9">{{ product.name }}</dd>
+
+  <dt class="col-sm-3">Price</dt>
+  <dd class="col-sm-9">{{ product.price }}</dd>
+  
+  <dt class="col-sm-3">Quantity</dt>
+  <dd class="col-sm-9">{{ product.quantity }}</dd>
+  
+  <dt class="col-sm-3">Status</dt>
+  <dd class="col-sm-9">{{ product.status }}</dd>
+</dl>
+
+<div class="product-form">
+        <form [formGroup]='editProductForm' (ngSubmit)="onSubmit()" method="patch">
+            <h2 class="text-center">Edit product</h2>       
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName = "name" placeholder="Name" value={{product.name}} required="required">
+                <div *ngIf="submitted && editProductForm.controls.name.errors" class="error">
+                    <div *ngIf="editProductForm.controls.name.errors.required">The name is required, bro</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName = "price" placeholder="Price" value={{product.price}} required="required">
+                <div *ngIf="submitted && editProductForm.controls.price.errors" class="error">
+                    <div *ngIf="editProductForm.controls.price.errors.required">The price is required, bro</div>
+                </div>  
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-control" formControlName = "quantity" placeholder="Quantity" value={{product.quantity}} required="required">
+                    <div *ngIf="submitted && editProductForm.controls.quantity.errors" class="error">
+                        <div *ngIf="editProductForm.controls.quantity.errors.required">The quantity is required, bro</div>
+                    </div>  
+                </div>
+    
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Edit product</button>
+                <button mat-raised-button routerLink="/order" class="btn btn-danger btn-block">Back</button>
+            </div>      
+        </form>
+        
+    </div>
