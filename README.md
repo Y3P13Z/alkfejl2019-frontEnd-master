@@ -8,4 +8,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Use case diagram
 
-![usecase](assets/use_case.png)
+![usecase](assets/use_case.PNG)
