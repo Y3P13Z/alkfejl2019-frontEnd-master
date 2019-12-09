@@ -17,3 +17,5 @@ A fejlesztés során Angular 8.3.20 keretrendszert használtam, a fejlesztői k�
 ## Alkalmazott könyvtárszerkezet
 
 ![library](assets/library.PNG)
+
+Az Angular minden komponens hozzáadásánál létrehoz egy mappát az adott komponensnek, ezekben találhatók a hozzá tartozó css, html, illetve ts fájlok. Ezen nem változtattam.
