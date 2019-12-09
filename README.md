@@ -19,3 +19,17 @@ A fejlesztés során Angular 8.3.20 keretrendszert használtam, a fejlesztői k�
 ![library](assets/library.PNG)
 
 Az Angular minden komponens hozzáadásánál létrehoz egy mappát az adott komponensnek, ezekben találhatók a hozzá tartozó css, html, illetve ts fájlok. Ezen nem változtattam.
+
+## Kliens oldali szolgáltatások
+
+### AuthService:
+A beléptetést végzi, a role based authorization a backenden történik.
+
+### OrderService:
+A rendelések hozzáadásáért, illetve kiértékelésért felelős. Minden felhasználónak a hozzá rendelt Orderek jelennek meg.
+
+### ProductService:
+A termékek CRUD folyamataiért felelős.
+
+### UserService:
+A felhasználók listázásáért felelős.
