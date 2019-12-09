@@ -33,3 +33,7 @@ A termékek CRUD folyamataiért felelős.
 
 ### UserService:
 A felhasználók listázásáért felelős.
+
+## Termék hozzáadásának leírása
+
+Terméket csak bejelentkezés után tudunk hozzáadni. A megfelelő adatok (név, ár, mennyiség) beírása után a hozzáadás gombra kattintva a kliens egy post request formájában elküldi a megfelelő adatokat a product/add endpointra, majd ez hozzáadódik a Products táblához. 
